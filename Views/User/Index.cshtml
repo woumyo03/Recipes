@@ -1,0 +1,40 @@
+@model List<User>
+
+<form method="get" asp-controller="User" asp-action="Search">
+    <label>Type user name or recipe:</label>
+    <input type="text" name="searchKey" placeholder="Type user name or recipe" />
+    <button type="submit">Search</button>
+</form>
+
+<br />
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Recipe</th>
+        <th>Recipe Description</th>
+        <th>Ingredients</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (User u in Model)
+    {
+        <tr>
+            <td>@u.UserId</td>
+            <td>@u.Name</td>
+            <td>@u.Email</td>
+            <td>@u.Password</td>
+            <td>@u.Recipe.Title</td>
+            <td>@u.Recipe.Description</td>
+            <td>@u.Recipe.Ingredients</td>
+            <td>
+                <a asp-action="Delete" asp-controller="User" asp-route-id="@u.UserId">delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Add" asp-controller="User">SIGN UP</a>

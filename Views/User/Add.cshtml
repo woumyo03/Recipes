@@ -1,0 +1,51 @@
+﻿@model User
+
+<h2>Sign Up</h2>
+
+<form asp-action="Add" asp-controller="User" method="post">
+    <div>
+        <label asp-for="Name">User Name</label>
+        <input asp-for="Name" />
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Email">User Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Password">Password</label>
+        <input type="password" asp-for="Password" />
+    </div>
+
+    <br />
+
+    <h3>Recipe Information</h3>
+
+    <div>
+        <label>Recipe Name</label>
+        <input type="text" name="recipeTitle" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Recipe Description</label>
+        <input type="text" name="recipeDescription" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Ingredients</label>
+        <textarea name="recipeIngredients"></textarea>
+    </div>
+
+    <br />
+
+    <button type="submit">Sign Up</button>
+</form>
